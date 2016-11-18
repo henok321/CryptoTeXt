@@ -1,3 +1,5 @@
+#!/usr/bin/env groovy
+
 def gitUrl = 'git@github.com:henok321/CryptoTeXt.git'
 def branch = 'master'
 
