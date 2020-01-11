@@ -6,5 +6,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType
 @XmlEnum
 public enum CipherName {
-    AES, DES, ARC4;
+  AES,
+  DES,
+  ARC4;
 }
