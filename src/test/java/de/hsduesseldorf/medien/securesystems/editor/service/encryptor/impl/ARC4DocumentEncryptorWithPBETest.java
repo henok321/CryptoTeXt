@@ -1,10 +1,13 @@
 package de.hsduesseldorf.medien.securesystems.editor.service.encryptor.impl;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import de.hsduesseldorf.medien.securesystems.editor.exception.InvalidChecksum;
 import de.hsduesseldorf.medien.securesystems.editor.model.Document;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,7 +24,7 @@ public class ARC4DocumentEncryptorWithPBETest {
 
   ARC4DocumentEncryptorWithPBE cut;
 
-  @Before
+  @BeforeEach
   public void setup() throws Exception {
     cut = new ARC4DocumentEncryptorWithPBE(PASSWORD);
   }
@@ -35,7 +38,7 @@ public class ARC4DocumentEncryptorWithPBETest {
     document = cut.encrypt(document);
     LOG.debug("cleartext lenght:\t" + TEST_MESSAGE.length);
     LOG.debug("ciphertext length:\t" + document.getPayload().length);
-    Assert.assertNotEquals(new String(TEST_MESSAGE), new String(document.getPayload()));
+    assertNotEquals(new String(TEST_MESSAGE), new String(document.getPayload()));
   }
 
   @Test
@@ -48,17 +51,21 @@ public class ARC4DocumentEncryptorWithPBETest {
     document = cut.decrypt(document);
     LOG.debug("cleartext lenght:\t" + TEST_MESSAGE.length);
     LOG.debug("ciphertext length:\t" + document.getPayload().length);
-    Assert.assertEquals(new String(TEST_MESSAGE), new String(document.getPayload()));
+    assertEquals(new String(TEST_MESSAGE), new String(document.getPayload()));
   }
 
-  @Test(expected = InvalidChecksum.class)
+  @Test
   public void decrypt_invalid_checkup() throws Exception {
-    Document document = new Document();
-    document.setPayload(TEST_MESSAGE);
-    document.setPayloadLength(TEST_MESSAGE.length);
-    document.setEncrypted(false);
-    document = cut.encrypt(document);
-    document.getPayload()[0] = 0x01;
-    cut.decrypt(document);
+    final Document raw = new Document();
+    raw.setPayload(TEST_MESSAGE);
+    raw.setPayloadLength(TEST_MESSAGE.length);
+    raw.setEncrypted(false);
+    final Document encrypt = cut.encrypt(raw);
+    encrypt.getPayload()[0] = 0x01;
+    assertThrows(
+        InvalidChecksum.class,
+        () -> {
+          cut.decrypt(encrypt);
+        });
   }
 }

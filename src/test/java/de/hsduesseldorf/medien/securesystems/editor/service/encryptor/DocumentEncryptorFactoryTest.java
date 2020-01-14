@@ -1,8 +1,10 @@
 package de.hsduesseldorf.medien.securesystems.editor.service.encryptor;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import de.hsduesseldorf.medien.securesystems.editor.service.encryptor.impl.PBEDocumentEncryptor;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class DocumentEncryptorFactoryTest {
 
@@ -11,15 +13,19 @@ public class DocumentEncryptorFactoryTest {
   @Test
   public void getInstance() throws Exception {
     DocumentEncryptor encryptor = DocumentEncryptorFactory.getInstance("AES", PASSWORD);
-    Assert.assertTrue(encryptor instanceof PBEDocumentEncryptor);
+    assertTrue(encryptor instanceof PBEDocumentEncryptor);
     encryptor = DocumentEncryptorFactory.getInstance("DES", PASSWORD);
-    Assert.assertTrue(encryptor instanceof PBEDocumentEncryptor);
+    assertTrue(encryptor instanceof PBEDocumentEncryptor);
     encryptor = DocumentEncryptorFactory.getInstance("ARC4", PASSWORD);
-    Assert.assertTrue(encryptor instanceof PBEDocumentEncryptor);
+    assertTrue(encryptor instanceof PBEDocumentEncryptor);
   }
 
-  @Test(expected = IllegalArgumentException.class)
+  @Test
   public void getInstance_illegalArg() throws Exception {
-    DocumentEncryptor encryptor = DocumentEncryptorFactory.getInstance("INVALID", PASSWORD);
+    assertThrows(
+        IllegalArgumentException.class,
+        () -> {
+          DocumentEncryptorFactory.getInstance("INVALID", PASSWORD);
+        });
   }
 }

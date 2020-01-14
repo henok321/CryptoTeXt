@@ -16,9 +16,8 @@
     <jcl-over-slf4j.version>1.7.14</jcl-over-slf4j.version>
     <logback-classic.version>1.1.3</logback-classic.version>
     <!-- testing -->
-    <junit.version>4.12</junit.version>
+    <junit.version>5.5.2</junit.version>
     <mockito-all.version>1.10.19</mockito-all.version>
-    <powermock-core.version>1.6.4</powermock-core.version>
     <commons-lang3.version>3.4</commons-lang3.version>
     <!-- maven plugins -->
     <javafx-maven-plugin.version>0.0.3</javafx-maven-plugin.version>
@@ -42,6 +41,15 @@
           <source>${javafx-base.version}</source>
           <target>${javafx-base.version}</target>
         </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.2</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>2.22.2</version>
       </plugin>
 
       <plugin>
@@ -74,7 +82,11 @@
           </execution>
         </executions>
       </plugin>
-
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>2.7</version>
+      </plugin>
     </plugins>
   </build>
 
@@ -148,8 +160,14 @@
 
     <!-- testing -->
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
@@ -159,25 +177,5 @@
       <version>${mockito-all.version}</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>org.powermock</groupId>
-      <artifactId>powermock-core</artifactId>
-      <version>${powermock-core.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.powermock</groupId>
-      <artifactId>powermock-api-mockito</artifactId>
-      <version>${powermock-core.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.powermock</groupId>
-      <artifactId>powermock-module-junit4</artifactId>
-      <version>${powermock-core.version}</version>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
-
-
 </project>

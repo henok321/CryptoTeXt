@@ -1,12 +1,13 @@
 package de.hsduesseldorf.medien.securesystems.editor.service.encryptor.impl;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import de.hsduesseldorf.medien.securesystems.editor.model.CipherName;
 import de.hsduesseldorf.medien.securesystems.editor.model.Document;
 import org.bouncycastle.util.encoders.Hex;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,7 +24,7 @@ public class DESDocumentEncryptorTest {
 
   DESDocumentEncryptor cut;
 
-  @Before
+  @BeforeEach
   public void setup() throws Exception {
     this.cut = new DESDocumentEncryptor();
   }
