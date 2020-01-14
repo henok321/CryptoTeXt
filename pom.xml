@@ -28,6 +28,7 @@
 
     <jaxb-api.version>2.3.0</jaxb-api.version>
     <javafx-base.version>11</javafx-base.version>
+    <activation.version>1.1.1</activation.version>
   </properties>
 
   <build>
@@ -93,6 +94,11 @@
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
       <version>${javafx-base.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.activation</groupId>
+      <artifactId>activation</artifactId>
+      <version>${activation.version}</version>
     </dependency>
     <!-- xml bind-->
     <dependency>
