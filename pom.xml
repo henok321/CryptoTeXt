@@ -10,6 +10,8 @@
   <packaging>jar</packaging>
 
   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
     <!-- security -->
     <bcprov-jdk15on.version>1.64</bcprov-jdk15on.version>
     <!-- logging -->
@@ -26,7 +28,7 @@
     <maven-git-code-format.version>1.39</maven-git-code-format.version>
 
     <jaxb-api.version>2.3.0</jaxb-api.version>
-    <javafx-base.version>11</javafx-base.version>
+    <javafx-base.version>13</javafx-base.version>
     <activation.version>1.1.1</activation.version>
   </properties>
 
