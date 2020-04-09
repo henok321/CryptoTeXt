@@ -27,7 +27,7 @@
         <jasypt.version>1.9.3</jasypt.version>
 
         <jaxb-api.version>2.3.0</jaxb-api.version>
-        <javafx-base.version>13</javafx-base.version>
+        <javafx-base.version>11</javafx-base.version>
         <activation.version>1.1.1</activation.version>
     </properties>
 
@@ -74,21 +74,21 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>io.github.phillipuniverse</groupId>
-                <artifactId>githook-maven-plugin</artifactId>
-                <version>1.0.4</version>
+                <groupId>com.cosium.code</groupId>
+                <artifactId>maven-git-code-format</artifactId>
+                <version>1.24</version>
                 <executions>
                     <execution>
+                        <id>install-formatter-hook</id>
                         <goals>
-                            <goal>install</goal>
+                            <goal>install-hooks</goal>
                         </goals>
-                        <configuration>
-                            <hooks>
-                                <pre-commit>
-                                    mvn clean package
-                                </pre-commit>
-                            </hooks>
-                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>validate-code-format</id>
+                        <goals>
+                            <goal>validate-code-format</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
