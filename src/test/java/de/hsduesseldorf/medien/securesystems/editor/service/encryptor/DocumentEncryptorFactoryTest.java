@@ -6,12 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import de.hsduesseldorf.medien.securesystems.editor.service.encryptor.impl.PBEDocumentEncryptor;
 import org.junit.jupiter.api.Test;
 
-public class DocumentEncryptorFactoryTest {
+class DocumentEncryptorFactoryTest {
 
-  static char[] PASSWORD = "test".toCharArray();
+  private static final char[] PASSWORD = "test".toCharArray();
 
   @Test
-  public void getInstance() throws Exception {
+  void getInstance() throws Exception {
     DocumentEncryptor encryptor = DocumentEncryptorFactory.getInstance("AES", PASSWORD);
     assertTrue(encryptor instanceof PBEDocumentEncryptor);
     encryptor = DocumentEncryptorFactory.getInstance("DES", PASSWORD);
@@ -21,7 +21,7 @@ public class DocumentEncryptorFactoryTest {
   }
 
   @Test
-  public void getInstance_illegalArg() throws Exception {
+  void getInstance_illegalArg() throws Exception {
     assertThrows(
         IllegalArgumentException.class,
         () -> {

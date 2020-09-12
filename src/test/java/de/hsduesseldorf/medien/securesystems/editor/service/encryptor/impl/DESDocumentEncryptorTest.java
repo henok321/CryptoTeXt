@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class DESDocumentEncryptorTest {
+class DESDocumentEncryptorTest {
 
   private static Logger LOG = LoggerFactory.getLogger(DESDocumentEncryptorTest.class);
 
@@ -25,12 +25,12 @@ public class DESDocumentEncryptorTest {
   DESDocumentEncryptor cut;
 
   @BeforeEach
-  public void setup() throws Exception {
+  void setup() throws Exception {
     this.cut = new DESDocumentEncryptor();
   }
 
   @Test
-  public void encrypt() throws Exception {
+  void encrypt() throws Exception {
     Document document = new Document();
     document.setCipherName(CipherName.DES);
     document.setEncrypted(false);
@@ -42,7 +42,7 @@ public class DESDocumentEncryptorTest {
   }
 
   @Test
-  public void decrypt() throws Exception {
+  void decrypt() throws Exception {
     Document document = new Document();
     document.setCipherName(CipherName.DES);
     document.setEncrypted(false);

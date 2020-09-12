@@ -15,18 +15,18 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class PBEDocumentEncryptorTest {
+class PBEDocumentEncryptorTest {
 
-  static char[] PASSWORD = "test".toCharArray();
-  static Logger LOG = LoggerFactory.getLogger(PBEDocumentEncryptorTest.class);
-  static byte[] TEST_MESSAGE =
+  private static final char[] PASSWORD = "test".toCharArray();
+  private static final Logger LOG = LoggerFactory.getLogger(PBEDocumentEncryptorTest.class);
+  private static final byte[] TEST_MESSAGE =
       new byte[] {
         0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
         0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f,
         0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07
       };
 
-  List<DocumentEncryptor> cut;
+  private List<DocumentEncryptor> cut;
 
   @BeforeEach
   public void setup() throws Exception {
@@ -38,7 +38,7 @@ public class PBEDocumentEncryptorTest {
   }
 
   @Test
-  public void encrypt() throws Exception {
+  void encrypt() throws Exception {
     for (DocumentEncryptor e : cut) {
       Document document = new Document();
       document.setPayload(TEST_MESSAGE);
@@ -52,7 +52,7 @@ public class PBEDocumentEncryptorTest {
   }
 
   @Test
-  public void decrypt() throws Exception {
+  void decrypt() throws Exception {
     for (DocumentEncryptor e : cut) {
       Document document = new Document();
       document.setPayload(TEST_MESSAGE);
@@ -67,7 +67,7 @@ public class PBEDocumentEncryptorTest {
   }
 
   @Test
-  public void decrypt_invalid_checkup() throws Exception {
+  void decrypt_invalid_checkup() throws Exception {
     for (DocumentEncryptor e : cut) {
       final Document raw = new Document();
       raw.setPayload(TEST_MESSAGE);

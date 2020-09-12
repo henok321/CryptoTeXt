@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class AESDocumentEncryptorWithPBETest {
+class AESDocumentEncryptorWithPBETest {
 
   static char[] PASSWORD = "test".toCharArray();
   private static Logger LOG = LoggerFactory.getLogger(AESDocumentEncryptorWithPBETest.class);
@@ -30,7 +30,7 @@ public class AESDocumentEncryptorWithPBETest {
   }
 
   @Test
-  public void encrypt() throws Exception {
+  void encrypt() throws Exception {
     Document document = new Document();
     document.setPayload(TEST_MESSAGE);
     document.setPayloadLength(TEST_MESSAGE.length);
@@ -42,7 +42,7 @@ public class AESDocumentEncryptorWithPBETest {
   }
 
   @Test
-  public void decrypt() throws Exception {
+  void decrypt() throws Exception {
     Document document = new Document();
     document.setPayload(TEST_MESSAGE);
     document.setPayloadLength(TEST_MESSAGE.length);
@@ -55,7 +55,7 @@ public class AESDocumentEncryptorWithPBETest {
   }
 
   @Test
-  public void decrypt_invalid_checkup() throws Exception {
+  void decrypt_invalid_checkup() throws Exception {
     final Document raw = new Document();
     raw.setPayload(TEST_MESSAGE);
     raw.setPayloadLength(TEST_MESSAGE.length);

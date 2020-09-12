@@ -29,6 +29,8 @@ import org.slf4j.LoggerFactory;
 public class EditorController implements Initializable {
 
   static final Logger LOG = LoggerFactory.getLogger(EditorController.class);
+  public static final String CRYPTO_ERROR_TITLE = "Crypto error!";
+  public static final String CRYPTO_ERROR_MSG = "An crypto error occured";
 
   MainApp mainApp;
   OptionsDialogController optionsDialogController;
@@ -97,7 +99,7 @@ public class EditorController implements Initializable {
       }
       return true;
     } catch (GeneralSecurityException e) {
-      alertBox("Crypto error!", "An crypto error occured", ERROR);
+      alertBox(CRYPTO_ERROR_TITLE, CRYPTO_ERROR_MSG, ERROR);
       e.printStackTrace();
     } finally {
       optionsDialogController.setPassword(null);
@@ -159,7 +161,7 @@ public class EditorController implements Initializable {
       }
       return true;
     } catch (GeneralSecurityException e) {
-      alertBox("Crypto error!", "An crypto error occured", ERROR);
+      alertBox(CRYPTO_ERROR_TITLE, CRYPTO_ERROR_MSG, ERROR);
       e.printStackTrace();
     } finally {
       optionsDialogController.setPassword(null);
@@ -224,7 +226,7 @@ public class EditorController implements Initializable {
       return false;
 
     } catch (GeneralSecurityException e) {
-      alertBox("Crypto error!", "An crypto error occured", ERROR);
+      alertBox(CRYPTO_ERROR_TITLE, CRYPTO_ERROR_MSG, ERROR);
       e.printStackTrace();
     }
     currentDocument.setFile(file);
