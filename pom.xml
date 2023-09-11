@@ -26,7 +26,7 @@
         <jasypt.version>1.9.3</jasypt.version>
 
         <jaxb-api.version>2.3.0</jaxb-api.version>
-        <javafx-base.version>11</javafx-base.version>
+        <javafx-base.version>11.0.2</javafx-base.version>
         <activation.version>1.1.1</activation.version>
     </properties>
 
