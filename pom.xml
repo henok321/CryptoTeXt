@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- security -->
-        <bcprov-jdk15on.version>1.67</bcprov-jdk15on.version>
+        <bcprov-jdk15on.version>1.70</bcprov-jdk15on.version>
         <!-- logging -->
         <logback-classic.version>1.2.3</logback-classic.version>
         <!-- testing -->
