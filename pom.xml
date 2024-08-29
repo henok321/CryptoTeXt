@@ -19,7 +19,7 @@
         <!-- testing -->
         <junit.version>5.6.2</junit.version>
         <mockito-all.version>1.10.19</mockito-all.version>
-        <commons-lang3.version>3.11</commons-lang3.version>
+        <commons-lang3.version>3.17.0</commons-lang3.version>
         <!-- maven plugins -->
         <javafx-maven-plugin.version>0.0.8</javafx-maven-plugin.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
