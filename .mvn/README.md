@@ -1,0 +1,1 @@
+`jvm.config` is required for google-java-format: https://github.com/Cosium/git-code-form
