@@ -3,5 +3,18 @@
   "automerge": true,
   "extends": [
     "config:recommended"
+  ],
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "major",
+        "minor",
+        "patch",
+        "digest",
+        "pin"
+      ],
+      "automerge": true,
+      "platformAutomerge": true
+    }
   ]
 }
