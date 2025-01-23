@@ -1,36 +1,7 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "automerge": true,
   "extends": [
-    "config:base"
-  ],
-  "language": "java",
-  "enabledManagers": ["maven"],
-  "packageRules": [
-    {
-      "matchManagers": ["maven"],
-      "matchPackageNames": ["org.apache.maven.plugins:maven-compiler-plugin"],
-      "groupName": "Maven Compiler Plugin"
-    },
-    {
-      "matchManagers": ["maven"],
-      "matchPackageNames": ["org.openjdk.jdk"],
-      "groupName": "Java Runtime Updates",
-      "schedule": ["at any time"]
-    },
-    {
-      "matchManagers": ["maven"],
-      "groupName": "Maven Dependencies",
-      "description": "Group all Maven dependencies into one PR"
-    }
-  ],
-  "maven": {
-    "fileMatch": ["(^|/)pom\\.xml$"],
-    "ignorePaths": ["**/node_modules/**"]
-  },
-  "constraints": {
-    "java": {
-      "minimumVersion": "21"
-    }
-  },
-  "schedule": ["every weekend"],
-  "commitMessagePrefix": "[renovate]"
+    "config:recommended"
+  ]
 }
