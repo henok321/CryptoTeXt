@@ -7,6 +7,8 @@ import de.hsduesseldorf.medien.securesystems.editor.exception.InvalidChecksum;
 import de.hsduesseldorf.medien.securesystems.editor.model.Document;
 import de.hsduesseldorf.medien.securesystems.editor.service.encryptor.DocumentEncryptor;
 import de.hsduesseldorf.medien.securesystems.editor.service.encryptor.DocumentEncryptorFactory;
+import jakarta.xml.bind.DataBindingException;
+import jakarta.xml.bind.JAXB;
 import java.io.File;
 import java.net.URL;
 import java.security.GeneralSecurityException;
@@ -20,8 +22,6 @@ import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.crypto.BadPaddingException;
-import javax.xml.bind.DataBindingException;
-import javax.xml.bind.JAXB;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

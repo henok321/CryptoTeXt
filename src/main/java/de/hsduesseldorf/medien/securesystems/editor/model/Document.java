@@ -1,8 +1,8 @@
 package de.hsduesseldorf.medien.securesystems.editor.model;
 
+import jakarta.xml.bind.annotation.*;
 import java.io.File;
 import java.util.Date;
-import javax.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
