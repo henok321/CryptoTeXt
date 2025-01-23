@@ -2,4 +2,4 @@
 
 simple crypographical text editor
 
-build with maven: ```mvn clean jfx:jar``` 
+build with maven: ```mvn clean javafx:jar``` 
