@@ -64,7 +64,7 @@
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-debug-jdk18on</artifactId>
-            <version>1.79</version>
+            <version>1.81</version>
             <scope>compile</scope>
         </dependency>
 
